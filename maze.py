@@ -129,24 +129,28 @@ class Maze:
             self._cells[i][j].draw_move(self._cells[i - 1][j])
             if self._solve_r(i - 1, j):
                 return True
+            time.sleep(0.02)
             self._cells[i][j].draw_move(self._cells[i - 1][j], True)
         # turning right
         if i < self._num_cols -1  and not self._cells[i][j].has_right_wall and not self._cells[i + 1][j]._visited:
             self._cells[i][j].draw_move(self._cells[i + 1][j])
             if self._solve_r(i + 1, j):
                 return True
+            time.sleep(0.02)
             self._cells[i][j].draw_move(self._cells[i + 1][j], True)
         # turning up
         if j > 0 and not self._cells[i][j].has_top_wall and not self._cells[i][j - 1]._visited:
             self._cells[i][j].draw_move(self._cells[i][j - 1])
             if self._solve_r(i, j - 1):
                 return True
+            time.sleep(0.02)
             self._cells[i][j].draw_move(self._cells[i][j - 1], True)
         # turning down
         if j < self._num_rows - 1 and not self._cells[i][j].has_bottom_wall and not self._cells[i][j + 1]._visited:
             self._cells[i][j].draw_move(self._cells[i][j + 1])
             if self._solve_r(i, j + 1):
                 return True
+            time.sleep(0.02)
             self._cells[i][j].draw_move(self._cells[i][j + 1], True)
         return False
 
